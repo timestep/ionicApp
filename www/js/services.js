@@ -14,6 +14,10 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
+  function lastID () {
+    return friends[friends.length].id;
+  }
+
   return {
     all: function() {
       return friends;
@@ -21,6 +25,13 @@ angular.module('starter.services', [])
     get: function(friendId) {
       // Simple index lookup
       return friends[friendId];
+    },
+    add: function (newFriend) {
+      var newGuy = {
+        id: lastID() + 1,
+        name: newFriend
+      }
+      friends.push(newGuy);
     }
   }
 });

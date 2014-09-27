@@ -5,5 +5,10 @@
         {{friend.name}}
       </ion-item>
     </ion-list>
+    <label class="item item-input">
+      <span class="input-label">New Friend</span>
+      <input type="text" ng-model='newFriend'>
+    </label>
+    <button class='button' ng-touch='addFriend(newFriend)'>+</button>
   </ion-content>
 </ion-view>

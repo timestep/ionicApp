@@ -5,6 +5,12 @@ angular.module('starter.controllers', [])
 
 .controller('FriendsCtrl', function($scope, Friends) {
   $scope.friends = Friends.all();
+
+  $scope.addFriend = function (newFriends) {
+    Friends.add(newFriend);
+    $scope.newFriend = '';
+  }
+
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
