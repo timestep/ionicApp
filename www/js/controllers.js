@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.goToDetails = function (friend) {
-    $state.go('tab.friend-detail',{id:friend.id})
+    $state.go('tab.friend-detail',{friendId:friend.id})
   }
 
 })
