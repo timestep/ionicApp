@@ -15,7 +15,7 @@ angular.module('starter.services', [])
   ];
 
   function lastID () {
-    return friends[friends.length].id;
+    return friends[friends.length-1].id;
   }
 
   return {
@@ -27,11 +27,22 @@ angular.module('starter.services', [])
       return friends[friendId];
     },
     add: function (newFriend) {
+      if(friends.length == 0) {
+        var id = 0;
+      } else {
+        var id = lastID();
+      }
       var newGuy = {
-        id: lastID() + 1,
+        id: id + 1,
         name: newFriend
       }
-      friends.push(newGuy);
+      return friends.push(newGuy);
+    },
+    remove: function (friend) {
+      for (var i = friends.length - 1; i >= 0; i--) {
+        if(friends[i].id == friend.id) return friends.splice(i,1);
+      };
+      return;
     }
   }
 });

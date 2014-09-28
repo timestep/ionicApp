@@ -6,9 +6,18 @@ angular.module('starter.controllers', [])
 .controller('FriendsCtrl', function($scope, Friends) {
   $scope.friends = Friends.all();
 
-  $scope.addFriend = function (newFriends) {
+  $scope.addFriend = function (newFriend) {
+    if(newFriend == '' || !newFriend || newFriend.length == 0) return;
     Friends.add(newFriend);
     $scope.newFriend = '';
+  }
+
+  $scope.removeFriend = function (friend) {
+    Friends.remove(friend);
+  }
+
+  $scope.goToDetails = function (argument) {
+    // body...
   }
 
 })

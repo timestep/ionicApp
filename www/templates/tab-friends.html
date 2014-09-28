@@ -1,14 +1,15 @@
 <ion-view title="Friends">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
-        {{friend.name}}
+      <ion-item ng-repeat="friend in friends" type="item-text-wrap">
+        <button class="button button-clear button-dark" ng-click='goToDetails(friend)'>{{friend.name}}</button>
+        <button class='button button-assertive' ng-click="removeFriend(friend)">Remove</button>
       </ion-item>
     </ion-list>
     <label class="item item-input">
       <span class="input-label">New Friend</span>
       <input type="text" ng-model='newFriend'>
     </label>
-    <button class='button' ng-touch='addFriend(newFriend)'>+</button>
+    <button class='button' ng-click='addFriend(newFriend)'>+</button>
   </ion-content>
 </ion-view>
