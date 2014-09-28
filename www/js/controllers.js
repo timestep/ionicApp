@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
+.controller('FriendsCtrl', function($scope, $state, Friends) {
   $scope.friends = Friends.all();
 
   $scope.addFriend = function (newFriend) {
@@ -16,8 +16,8 @@ angular.module('starter.controllers', [])
     Friends.remove(friend);
   }
 
-  $scope.goToDetails = function (argument) {
-    // body...
+  $scope.goToDetails = function (friend) {
+    $state.go('tab.friend-detail',{id:friend.id})
   }
 
 })
