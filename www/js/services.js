@@ -24,7 +24,10 @@ angular.module('starter.services', [])
     },
     get: function(friendId) {
       // Simple index lookup
-      return friends[friendId];
+      for (var i = friends.length - 1; i >= 0; i--) {
+        if(friends[i].id == friendId) return friends[i];
+      };
+      return;
     },
     add: function (newFriend) {
       if(friends.length == 0) {
